@@ -87,6 +87,17 @@ def interests():
         return render_template('Interest.html')
     return render_template('Interest.html')
 
+@app.route('/results', methods=['GET','POST'])
+def interests():
+    if request.method == 'POST':
+        instrument = request.form('instrument')
+        hobbies = request.form('Hobbies')
+
+        interests = {'Instrument' : instrument,'hobbies': hobbies}
+        
+        return render_template('Interest.html')
+    return render_template('Interest.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
