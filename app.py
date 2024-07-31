@@ -77,6 +77,13 @@ def signup():
 @app.route('/interests', methods=['GET','POST'])
 def interests():
     if request.method == 'POST':
+        instrument = request.form('instrument')
+        hobbies = request.form('Hobbies')
+
+        interests = {'Instrument' : instrument,'hobbies': hobbies}
+        
+        db.child("Iterests").push(interests)
+        
         return render_template('Interest.html')
     return render_template('Interest.html')
 
